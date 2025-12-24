@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./:/ascii-art
+    env_file:
+      - .env
+    restart: always
+    tty: true
