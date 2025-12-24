@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - "8000"
+    volumes:
+      - ./:/ascii-art
+    env_file:
+      - .env
+    restart: always
+    tty: true
+    container_name: ascii-art
+    networks:
+      - proxy_network
+      - default
+
+networks:
+  proxy_network:
+    external: true
